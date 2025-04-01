@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Calculator, Hop as Mop, Plus, Minus, Check, SwitchCamera, LogOut } from 'lucide-react';
 import { useAuth } from './context/AuthContext';
 
@@ -16,7 +16,7 @@ interface AdditionalService {
 
 function App() {
   const { logout } = useAuth();
-  const [isRawFootage, setIsRawFootage] = useState(false);
+  const [isRawFootage, setIsRawFootage] = useState(true);
   const [rawFootage, setRawFootage] = useState(500);
   const [rooms, setRooms] = useState<Room[]>([]);
   const [additionalServices, setAdditionalServices] = useState<AdditionalService[]>([
@@ -92,7 +92,7 @@ function App() {
               onClick={() => setIsRawFootage(!isRawFootage)}
               className={`px-4 py-2 rounded-lg transition-colors ${
                 isRawFootage 
-                  ? 'bg-indigo-600 text-white' 
+                  ? 'bg-white text-gray-700 border border-gray-300'
                   : 'bg-white text-gray-700 border border-gray-300'
               }`}
             >
